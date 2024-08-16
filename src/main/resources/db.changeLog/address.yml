@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: address
+      author: om
+      changes:
+        - createTable:
+            tableName: address
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: street
+                  type: VARCHAR(255)
+              - column:
+                  name: city
+                  type: VARCHAR(255)
+              - column:
+                  name: pincode
+                  type: VARCHAR(20)

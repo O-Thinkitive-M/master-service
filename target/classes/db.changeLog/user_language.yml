@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: user_id_language_id
+      author: om
+      changes:
+        - createTable:
+            tableName: user_language
+            columns:
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_user_id
+                    references: user(id)
+              - column:
+                  name: language_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_language_id
+                    references: language(id)

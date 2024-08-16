@@ -1,0 +1,46 @@
+server:
+  port: 9898
+
+spring:
+  liquibase:
+    change-log: classpath:db.changeLog/master_liquibase.yml
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: admin
+    password: my-password
+    driver-class-name: org.postgresql.Driver
+    profiles:
+    active: dev
+  application:
+    name: USER-SERVICE
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+keycloak:
+  realm: Hogwarts
+  resource: kcloak
+  auth-server-url: http://localhost:8090
+  credentials:
+    secret: jlTEnLELZhZnGmpgepsMQ7Hfcf35Q1et
+  introspectUri: http://localhost:8090/realms/Hogwarts/protocol/openid-connect/token/introspect
+
+#Swagger API
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: kcloak
+      client-secret: jlTEnLELZhZnGmpgepsMQ7Hfcf35Q1et
+
+
+#  jpa:
+#    hibernate:
+##      ddl-auto: update  # Use 'create' for initial schema creation or 'update' for schema updates
+#    show-sql: true      # Show SQL statements in logs (optional)
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect

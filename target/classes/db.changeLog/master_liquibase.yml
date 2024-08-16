@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - include:
+      file: db.changeLog/address.yml
+  - include:
+      file: db.changeLog/language.yml
+  - include:
+      file: db.changeLog/user.yml
+  - include:
+      file: db.changeLog/department.yml
+  - include:
+      file: db.changeLog/user_language.yml
+
